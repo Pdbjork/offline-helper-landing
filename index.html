@@ -304,7 +304,7 @@
 
     .pricing {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
     .price-card {
@@ -313,10 +313,34 @@
       border-radius: var(--radius-lg);
       padding: 1.6rem;
       box-shadow: 0 12px 40px rgba(19, 35, 29, .08);
+      display: flex;
+      flex-direction: column;
+    }
+    .price-card.featured { border: 2px solid var(--accent); transform: translateY(-.35rem); }
+    .price-tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      background: rgba(220, 233, 222, .9);
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: .82rem;
+      margin-bottom: .8rem;
     }
     .price { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: -.07em; margin: .6rem 0; }
     .price small { font-size: 1rem; color: var(--muted); letter-spacing: 0; font-weight: 650; }
     .price-card ul { margin: 1.2rem 0 0; padding-left: 1.1rem; color: var(--muted); }
+    .price-card .button { margin-top: auto; align-self: flex-start; }
+    .payment-note {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(47, 125, 92, .22);
+      border-radius: var(--radius-md);
+      background: rgba(220, 233, 222, .48);
+      color: #405149;
+      font-weight: 650;
+    }
 
     .cta {
       text-align: center;
@@ -360,10 +384,11 @@
           <li><a href="#for-families">Who it helps</a></li>
           <li><a href="#setup">Setup</a></li>
           <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#research">Research</a></li>
           <li><a href="#safety">Safety</a></li>
         </ul>
       </nav>
-      <a class="button primary" href="mailto:pdbjork@gmail.com?subject=Offline%20Helper%20pilot%20setup">Book a pilot</a>
+      <a class="button primary" href="fit-check/index.html">Reserve a setup</a>
     </div>
   </header>
 
@@ -371,12 +396,12 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <span class="eyebrow">Local-first AI setup for families</span>
-          <h1>Private AI help for someone you love.</h1>
-          <p class="lede">Offline Helper is a done-for-you setup service that puts a friendly AI assistant on a Mac, explains the privacy tradeoffs clearly, and leaves your family with a simple guide.</p>
+          <span class="eyebrow">Private AI Helper Setup</span>
+          <h1>Private AI help, set up for real people.</h1>
+          <p class="lede">Offline Helper is a done-for-you, local-first setup service for families and older adults who want a useful AI assistant on their own computer — with patient teaching and plain-English privacy.</p>
           <p class="proof-line">Proof of concept: a 68-year-old mother who always wanted to write her memoir started immediately with her AI writing assistant — then called to say thank you for the motivation, focus, and beautifully edited chapters.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:pdbjork@gmail.com?subject=Offline%20Helper%20pilot%20setup">Request a pilot setup</a>
+            <a class="button primary" href="fit-check/index.html">Reserve a setup</a>
             <a class="button secondary" href="#setup">See what is included</a>
           </div>
           <div class="trust-row" aria-label="Key promises">
@@ -468,34 +493,92 @@
     <section id="pricing">
       <div class="wrap">
         <div class="section-head">
-          <h2>Simple pilot pricing.</h2>
-          <p>Early pricing is designed to prove the service, learn from real families, and avoid overbuilding before the setup path is stable.</p>
+          <h2>Market-research-backed pilot pricing.</h2>
+          <p>Public competitor research showed families already pay for trusted senior tech help. Offline Helper keeps the pilot simple: a free fit check first, then payment only if the setup is a good match.</p>
         </div>
         <div class="pricing">
           <article class="price-card">
-            <h3>Private AI setup</h3>
-            <div class="price">$199 <small>one-time</small></div>
-            <p>Best first public offer for a guided Mac setup session with handoff and a 7-day setup-fix window.</p>
+            <span class="price-tag">Step 1</span>
+            <h3>Free fit check</h3>
+            <div class="price">Free <small>10–15 min</small></div>
+            <p>A short call to confirm goals, device readiness, privacy concerns, and whether a local-first AI setup is realistic.</p>
             <ul>
-              <li>Pre-call intake</li>
-              <li>Local AI setup or verification</li>
-              <li>Assistant profile</li>
-              <li>Customer test message</li>
-              <li>Plain-English handoff guide</li>
+              <li>Who the helper is for</li>
+              <li>Mac/device readiness</li>
+              <li>Top use case: memoir, letters, learning, planning, or everyday questions</li>
+              <li>Plain-English local versus cloud explanation</li>
             </ul>
+            <p class="payment-note"><strong>No payment before fit check.</strong> If it is not a good fit, we say so kindly.</p>
+            <a class="button primary" href="fit-check/index.html">Book a free fit check</a>
+          </article>
+          <article class="price-card featured">
+            <span class="price-tag">Pilot offer</span>
+            <h3>Starter Setup</h3>
+            <div class="price">$149 <small>pilot</small></div>
+            <p>Best for one person who wants a working, local-first AI helper and a calm walkthrough.</p>
+            <ul>
+              <li>Device readiness check</li>
+              <li>Local AI setup or verification where practical</li>
+              <li>One useful first workflow</li>
+              <li>Plain-English privacy walkthrough</li>
+              <li>7-day “one question” follow-up</li>
+            </ul>
+            <p class="payment-note"><strong>Payment opens after fit check.</strong> Checkout, Jim tap-to-pay, or mobile invoice is offered only for confirmed-fit customers.</p>
+            <a class="button primary" href="fit-check/index.html">Start with a fit check</a>
           </article>
           <article class="price-card">
-            <h3>Family support</h3>
-            <div class="price">$29 <small>/ month</small></div>
-            <p>Optional ongoing support for families who want checkups, updates, and a trusted helper available.</p>
+            <span class="price-tag">For loved ones</span>
+            <h3>Family Setup</h3>
+            <div class="price">$249 <small>pilot</small></div>
+            <p>Best when an adult child, spouse, or caregiver wants the setup to feel safe, dignified, and easy to support.</p>
             <ul>
-              <li>Monthly health check</li>
-              <li>Model/app update check</li>
-              <li>Backup/archive verification</li>
-              <li>One short support question per month</li>
-              <li>Discounted reconfiguration</li>
+              <li>Everything in Starter Setup</li>
+              <li>Caregiver/loved-one onboarding</li>
+              <li>Consent and support-boundary walkthrough</li>
+              <li>Simple support handoff sheet</li>
+              <li>30-minute follow-up session</li>
             </ul>
+            <p class="payment-note"><strong>Payment only after fit check.</strong> No one is routed to checkout until the goals, device, and consent path are clear.</p>
+            <a class="button primary" href="fit-check/index.html">Set up for a loved one</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap split">
+        <div class="section-head">
+          <h2>Research loop before we overbuild.</h2>
+          <p>Every Facebook reply, fit check, paid setup, abandoned checkout, and support question becomes a redacted UX/UI signal. We improve copy, pricing, accessibility, and automation only after patterns repeat.</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="https://github.com/Pdbjork/Offline-Helper/blob/main/templates/facebook-interest-tracker.md">Facebook tracker</a>
+            <a class="button secondary" href="ux-research-data-system.md">Research system</a>
+            <a class="button secondary" href="sellable-mvp-launch-kit.md">Sellable MVP kit</a>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step"><div><h3>Capture consented signals</h3><p>Use a short consent note and survey. Do not collect passwords, tokens, or private documents.</p></div></article>
+          <article class="step"><div><h3>Validate privacy</h3><p>The research script checks for missing consent and obvious secret-like text before reports are generated.</p></div></article>
+          <article class="step"><div><h3>Pick one UX change</h3><p>Weekly reports identify top friction, price reaction, accessibility needs, and the next experiment.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mvp-kit">
+      <div class="wrap split">
+        <div class="section-head">
+          <h2>The MVP is sellable as a service today.</h2>
+          <p>The first product is a human-led setup package, not a fake self-serve checkout. A free fit check protects the customer, then a confirmed-fit buyer can pay by Stripe Checkout, Jim tap-to-pay, or Jim mobile invoice.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="sellable-mvp-launch-kit.md">Open the launch kit</a>
+            <a class="button secondary" href="profit-launch-plan.md">Profit plan</a>
+            <a class="button secondary" href="https://github.com/Pdbjork/Offline-Helper/blob/main/templates/fit-check-script.md">Fit-check script</a>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step"><div><h3>1. Fit check first</h3><p>Confirm goals, Mac readiness, consent, and local-versus-cloud understanding before asking for payment.</p></div></article>
+          <article class="step"><div><h3>2. Take confirmed-fit payment</h3><p>Create a Stripe Checkout payment URL for remote customers or use Jim tap-to-pay/mobile invoice for in-person and phone-assisted buyers.</p></div></article>
+          <article class="step"><div><h3>3. Fulfill and learn</h3><p>Send the confirmation, add the fulfillment queue row, run the service checklist, deliver the handoff, and log one redacted research signal.</p></div></article>
         </div>
       </div>
     </section>
@@ -504,8 +587,11 @@
       <div class="wrap">
         <div class="cta">
           <h2>Want to try a careful pilot setup?</h2>
-          <p>We are looking for a small number of friendly pilot families and community helpers. The best fit is someone with a Mac who wants AI help but does not want to become technical.</p>
-          <a class="button primary" href="mailto:pdbjork@gmail.com?subject=Offline%20Helper%20pilot%20setup&body=Hi%20Pete%2C%0A%0AI%27m%20interested%20in%20an%20Offline%20Helper%20pilot%20setup.%0A%0AWho%20this%20is%20for%3A%0AMac%20model%2Fyear%20if%20known%3A%0ATop%203%20things%20we%27d%20want%20help%20with%3A%0ABiggest%20privacy%20or%20safety%20worry%3A%0A">Request a pilot setup</a>
+          <p>We are looking for a small number of friendly pilot families and community helpers. The best fit is someone with a Mac who wants AI help but does not want to become technical. Join the research list if you are interested but not ready to pay yet.</p>
+          <div class="hero-actions" style="justify-content: center;">
+            <a class="button primary" href="fit-check/index.html">Reserve a setup</a>
+            <a class="button secondary" href="mailto:pdbjork@gmail.com?subject=Join%20Offline%20Helper%20research%20list&body=Hi%20Pete%2C%0A%0AI%27d%20like%20to%20join%20the%20Offline%20Helper%20research%20list.%0A%0AThe%20person%20this%20could%20help%3A%0AWhat%20feels%20confusing%20or%20risky%3A%0AMay%20you%20follow%20up%3F%20yes%2Fno%3A%0A">Join the research list</a>
+          </div>
         </div>
       </div>
     </section>
@@ -514,7 +600,7 @@
   <footer>
     <div class="wrap footer-grid">
       <span>© 2026 Offline Helper. Local-first AI setup, explained simply.</span>
-      <span><a href="../README.md">Project README</a> · <a href="mailto:pdbjork@gmail.com">Contact</a></span>
+      <span><a href="https://github.com/Pdbjork/Offline-Helper/blob/main/README.md">Project README</a> · <a href="mailto:pdbjork@gmail.com">Contact</a></span>
     </div>
   </footer>
 </body>
